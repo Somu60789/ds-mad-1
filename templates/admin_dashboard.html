@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 {% block content %}
 <h2>Admin Dashboard</h2>
+<a href="{{ url_for('create_service') }}" class="btn btn-primary">Create Service</a>
 <table class="table">
     <thead>
         <tr>
@@ -19,8 +20,9 @@
             <td>{{ service.price }}</td>
             <td>{{ service.description }}</td>
             <td>
-                <!-- Add actions like edit or delete -->
-                <button class="btn btn-danger">Delete</button>
+                <form action="{{ url_for('delete_service', service_id=service.id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
             </td>
         </tr>
         {% endfor %}

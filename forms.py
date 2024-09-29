@@ -10,7 +10,7 @@ class LoginForm(FlaskForm):
 class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
-    role = SelectField('Role', choices=[('customer', 'Customer'), ('professional', 'Professional')])
+    role = SelectField('Role', choices=[('customer', 'Customer'), ('professional', 'Professional')], validators=[DataRequired()])
     submit = SubmitField('Register')
 
 class ServiceRequestForm(FlaskForm):
